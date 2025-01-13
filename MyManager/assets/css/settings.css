@@ -1,0 +1,425 @@
+/* =============== Dark Mode Overrides ================ */
+body.dark-mode {
+    --blue: #1a1a40; /* Darker shade of blue for navigation */
+    --white: #121212; /* Background color for dark mode */
+    --gray: #2a2a2a;  /* Darker gray */
+    --black1: #f5f5f5; /* Light text color for dark mode */
+    --black2: #cccccc; /* Light gray for borders and text */
+  }
+  
+  body.dark-mode .navigation {
+    background: var(--blue);
+    border-left-color: var(--blue);
+  }
+  
+  body.dark-mode .navigation ul li a {
+    color: var(--black1); /* Light text */
+  }
+  
+  body.dark-mode .navigation ul li:hover,
+  body.dark-mode .navigation ul li.hovered {
+    background-color: var(--gray);
+  }
+  
+  body.dark-mode .main {
+    background: var(--white);
+  }
+  
+  body.dark-mode .search label input {
+    border: 1px solid var(--gray);
+    background: var(--gray);
+    color: var(--black1);
+  }
+
+  /* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: #2a2185;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* =============== Navigation ================ */
+.navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: var(--blue);
+  border-left: 10px solid var(--blue);
+  transition: 0.5s;
+  overflow: hidden;
+}
+.navigation.active {
+  width: 80px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: var(--blue);
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+/* --------- curve outside ---------- */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+/* ===================== Main ===================== */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+
+.search label {
+  position: relative;
+  width: 100%;
+}
+
+.search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid var(--black2);
+}
+
+.search label ion-icon {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 1.2rem;
+}
+
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* General styling for the container */
+.setting-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Label styling */
+.setting-item label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Select dropdown styling */
+#language-select {
+  width: 200px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+/* Hover and focus effects */
+#language-select:hover {
+  border-color: #007bff;
+}
+
+#language-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Option styling */
+#language-select option {
+  padding: 10px;
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  #language-select {
+    width: 100%;
+  }
+}
+
+#dark-mode-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  cursor: pointer;
+}
+
+/* The circle inside the toggle */
+#dark-mode-toggle::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Toggle when checked (dark mode on) */
+#dark-mode-toggle:checked {
+  background-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#dark-mode-toggle:checked::before {
+  transform: translateX(20px);
+}
+
+/* Hover effect */
+#dark-mode-toggle:hover {
+  background-color: #bbb;
+}
+
+#dark-mode-toggle:checked:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  .setting-item label {
+    font-size: 14px;
+  }
+
+  #dark-mode-toggle {
+    width: 36px;
+    height: 18px;
+  }
+
+  #dark-mode-toggle::before {
+    width: 14px;
+    height: 14px;
+    transform: translateX(18px);
+  }
+}
+
+#notifications-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  cursor: pointer;
+}
+
+/* The circle inside the toggle */
+#notifications-toggle::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Toggle when checked (notifications on) */
+#notifications-toggle:checked {
+  background-color: #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+#notifications-toggle:checked::before {
+  transform: translateX(20px);
+}
+
+/* Hover effect */
+#notifications-toggle:hover {
+  background-color: #bbb;
+}
+
+#notifications-toggle:checked:hover {
+  background-color: #218838;
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  .setting-item label {
+    font-size: 14px;
+  }
+
+  #notifications-toggle {
+    width: 36px;
+    height: 18px;
+  }
+
+  #notifications-toggle::before {
+    width: 14px;
+    height: 14px;
+    transform: translateX(18px);
+  }
+}

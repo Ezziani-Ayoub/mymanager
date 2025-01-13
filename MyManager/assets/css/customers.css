@@ -1,0 +1,448 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: #2a2185;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* =============== Navigation ================ */
+.navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: var(--blue);
+  border-left: 10px solid var(--blue);
+  transition: 0.5s;
+  overflow: hidden;
+}
+.navigation.active {
+  width: 80px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: var(--blue);
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+/* --------- curve outside ---------- */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+/* ===================== Main ===================== */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 30px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+
+.search label {
+  position: relative;
+  width: 100%;
+}
+
+.search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid var(--black2);
+}
+
+.search label ion-icon {
+  position: absolute;
+  top: -10px;
+  left: 0px;
+  font-size: 1.2rem;
+}
+
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Main Section Styles */
+.main {
+    margin-left: 250px;
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.2s ease-in-out;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.topbar .toggle {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.topbar .search input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    background: #f1f1f1;
+}
+
+.topbar .search ion-icon {
+    position: absolute;
+    margin-left: -30px;
+    margin-top: 10px;
+}
+
+.topbar .user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Add Customers Section */
+.addCustomer {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.addCustomer h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.addCustomer .inputBox {
+    margin-bottom: 15px;
+}
+
+.addCustomer .inputBox label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.addCustomer .inputBox input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+}
+
+.addCustomer .inputBox input:focus {
+    border-color: #5d9cec;
+}
+
+.addCustomer .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #5d9cec;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.addCustomer .btn:hover {
+    background: #4a8bda;
+}
+
+/* Recent Customers Section */
+.recentCustomers {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.recentCustomers .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.recentCustomers .cardHeader h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.recentCustomers table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recentCustomers table td {
+    padding: 10px 0;
+    font-size: 14px;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+}
+
+.recentCustomers table .imgBx {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.recentCustomers table .imgBx img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Utility Classes */
+.cardHeader .btn {
+    padding: 10px 20px;
+    background: #5d9cec;
+    color: #fff;
+    border-radius: 1px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.cardHeader .btn:hover {
+    background: #4a8bda;
+}
+
+button:focus, 
+input:focus {
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .navigation {
+        width: 80px;
+    }
+
+    .main {
+        margin-left: 80px;
+    }
+
+    .navigation ul li a .title {
+        display: none;
+    }
+}
+
+/* General button styles */
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Grey Edit Button */
+.edit-btn {
+  background-color: #6c757d; /* Grey background */
+  color: white; /* White text */
+}
+
+.edit-btn:hover {
+  background-color: #5a6268; /* Darker grey on hover */
+}
+
+/* Grey Delete Button */
+.delete-btn {
+  background-color: #6c757d; /* Grey background */
+  color: white; /* White text */
+}
+
+.delete-btn:hover {
+  background-color: #5a6268; /* Darker grey on hover */
+}
+
+/* =============== Dark Mode Overrides ================ */
+body.dark-mode {
+  --blue: #1a1a40; /* Darker shade of blue for navigation */
+  --white: #121212; /* Background color for dark mode */
+  --gray: #2a2a2a;  /* Darker gray */
+  --black1: #f5f5f5; /* Light text color for dark mode */
+  --black2: #cccccc; /* Light gray for borders and text */
+}
+
+body.dark-mode .navigation {
+  background: var(--blue);
+  border-left-color: var(--blue);
+}
+
+body.dark-mode .navigation ul li a {
+  color: var(--black1); /* Light text */
+}
+
+body.dark-mode .navigation ul li:hover,
+body.dark-mode .navigation ul li.hovered {
+  background-color: var(--gray);
+}
+
+body.dark-mode .main {
+  background: var(--white);
+}
+
+body.dark-mode .search label input {
+  border: 1px solid var(--gray);
+  background: var(--gray);
+  color: var(--black1);
+}
